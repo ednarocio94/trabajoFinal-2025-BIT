@@ -12,7 +12,6 @@ const app = express();
 dotenv.config();
 connectionMongo();
 
-const port = process.env.PORT || 3000;
 app.use(cors());
 
 app.use(express.json());
@@ -21,7 +20,9 @@ app.use("/admin", routerAdmin);
 app.use("/mascotas", petsrouter);
 app.use("/loginAdmin", loginAdminRouter);
 app.use("/loginUser", loginUserRouter);
-
-app.listen(port, () => {
-  console.log("El servidor está ejecutándose correctamente, en el puerto ", port);
+app.get("/", (req, res) => {
+  res.send("Hola mundo, Backend Funcionando Correctamente");
 });
+
+export default app;
+

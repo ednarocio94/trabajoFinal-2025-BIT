@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/bin/www",
     "dev": "nodemon src/bin/www",
-    "jest": "jest"
+    "test": "jest"
   },
   "keywords": [
     "adopcion"
