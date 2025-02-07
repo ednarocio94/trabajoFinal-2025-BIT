@@ -9,8 +9,7 @@
       <ul>
         <li> <a routerLink="/admin/gestionAdmin"> Gestión Admin</a></li>
         <li><a routerLink="/admin/gestionUsuarios"> Gestion Usuarios</a></li>
-        <li><a routerLink="/admin"> Gestión mascotas</a>
-        </li>
+        <li><a routerLink="/admin"> Gestión mascotas</a></li>
       </ul>
     </nav>
     <button (click)="logout()" class="logout-btn">Cerrar sesión</button>
@@ -19,32 +18,54 @@
   <main class="main-content">
     <div class="header">
        <h1>Gestión de mascotas</h1>
-      <button class="add-product-btn">Agregar nuevas mascotas</button>
-    </div> -->
+      <button class="add-product-btn" (click)="isEditing = false; mascotaForm.reset()">Agregar nueva mascota</button>
+    </div> 
 
-     <div class="product-list">
+    <div class="form-container" *ngIf="!isEditing">
+      <h2>Agregar Mascota</h2>
+      <form [formGroup]="mascotaForm" (ngSubmit)="addMascota()">
+        <input formControlName="nombre" placeholder="Nombre" required>
+        <input formControlName="raza" placeholder="Raza" required>
+        <input formControlName="edad" type="number" placeholder="Edad" required>
+        <input formControlName="propietario" placeholder="Propietario" required>
+        <input formControlName="imagen" placeholder="URL de la imagen" required>
+        <label>
+          <input type="checkbox" formControlName="estaAdoptado"> ¿Está adoptado?
+        </label>
+        <button type="submit">Agregar</button>
+      </form>
+    </div>
 
-      <div *ngFor="let mascota of allMacotas">
-        <div class="product-card">
-          <img
-            src={{mascota.imagen}}
-            alt="Producto"
-            class="product-image"
-          />
-          <div class="mascotas">  
-            <h3>{{mascota.nombre}}</h3>
-            <p> {{mascota.edad}} </p>
-            <p> {{mascota.estaAdoptado}}</p>
-            <p> {{mascota.propietario}}</p>
-            <p> {{mascota.estaAdoptado}}</p>
-          </div>
-          <!-- <div class="product-actions">
-            <button class="btn btn-success edit-btn">Editar</button>
-            <button class="btn btn-danger delete-btn">Eliminar</button>
-          </div> -->
+    <div class="form-container" *ngIf="isEditing">
+      <h2>Editar Mascota</h2>
+      <form [formGroup]="mascotaForm" (ngSubmit)="updateMascota()">
+        <input formControlName="nombre" placeholder="Nombre" required>
+        <input formControlName="raza" placeholder="Raza" required>
+        <input formControlName="edad" type="number" placeholder="Edad" required>
+        <input formControlName="propietario" placeholder="Propietario" required>
+        <input formControlName="imagen" placeholder="URL de la imagen" required>
+        <label>
+          <input type="checkbox" formControlName="estaAdoptado"> ¿Está adoptado?
+        </label>
+        <button type="submit">Actualizar</button>
+      </form>
+    </div>
+
+    <div class="product-list">
+      <div *ngFor="let mascota of allMacotas" class="product-card">
+        <img [src]="mascota.imagen" alt="Mascota" class="product-image">
+        <div class="mascotas">  
+          <h3>{{mascota.nombre}}</h3>
+          <p>Edad: {{mascota.edad}}</p>
+          <p>Raza: {{mascota.raza}}</p>
+          <p>Propietario: {{mascota.propietario}}</p>
+          <p>Adoptado: {{mascota.estaAdoptado ? 'Sí' : 'No'}}</p>
+        </div>
+        <div class="product-actions">
+          <button class="btn btn-success edit-btn" (click)="editMascota(mascota)">Editar</button>
+          <button class="btn btn-danger delete-btn" (click)="deleteMascota(mascota._id)">Eliminar</button>
         </div>
       </div>
     </div>
   </main>
-</div> 
-
+</div>

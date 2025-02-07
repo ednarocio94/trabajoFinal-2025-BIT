@@ -1,33 +1,30 @@
 import { Injectable, inject } from '@angular/core';
-// para hacer peticiones HTTP
 import { HttpClient } from '@angular/common/http';
-// importar la interfaz Usuarios
 import { Admin } from '../interfaces/admin';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
-  // 1. INYECCIÓN DE DEPENDENCIAS ---------------------------------------
   private _httpClient = inject(HttpClient);
+  private URL_ADMIN = 'http://localhost:3000/admin'; // Ruta base del backend
 
-  // 2. RUTA DE CONEXIÓN CON EL BACKEND ----------------------------------
-  private URL_ADMIN = 'http://localhost:3000/admin/'; //ruta genérica
-
-  // 3. HACER LAS PETICIONES ---------------------------------------------
-
-  // Petición POST
+  // Crear un administrador
   postAdmin(admin: Admin) {
-    // para crear un usuario, necesito la ruta y el body
     return this._httpClient.post(this.URL_ADMIN + '/crear', admin);
   }
 
-  // Petición GET
+  // Obtener todos los administradores
   getAdmin() {
-    return this._httpClient.get(this.URL_ADMIN + '/');
+    return this._httpClient.get(this.URL_ADMIN);
   }
 
-  // Petición DELETE 
+  // Actualizar un administrador
+  putAdmin(id: string, admin: Admin) {
+    return this._httpClient.put(this.URL_ADMIN + '/actualizar/' + id, admin);
+  }
+
+  // Eliminar un administrador
   deleteAdmin(id: string) {
     return this._httpClient.delete(this.URL_ADMIN + '/eliminar/' + id);
   }

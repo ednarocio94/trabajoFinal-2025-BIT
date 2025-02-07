@@ -1,41 +1,29 @@
-import { Injectable, inject } from '@angular/core';
-// para hacer peticiones HTTP
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// importar la interfaz Usuarios
+import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuariosService {
+  private apiUrl = 'http://localhost:3000/usuarios'; // Asegúrate de que esta URL sea correcta
 
-  // 1. INYECCIÓN DE DEPENDENCIAS ---------------------------------------
-  private _httpClient = inject(HttpClient);
+  constructor(private http: HttpClient) {}
 
-  // 2. RUTA DE CONEXIÓN CON EL BACKEND ----------------------------------
-  private URL_USUARIOS = 'http://localhost:3000/usuarios/'; //ruta genérica
-
-  // 3. HACER LAS PETICIONES ---------------------------------------------
-
-  // Petición POST
-  postUsuarios(user: User | null) {
-    // para crear un usuario, necesito la ruta y el body
-    return this._httpClient.post(this.URL_USUARIOS + '/crear', user);
+  getUsuarios(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/obtener`);
   }
 
-  // Petición GET
-  getUsuarios() {
-    return this._httpClient.get(this.URL_USUARIOS + '/obtener');
+  postUsuarios(user: User): Observable<User> {
+    return this.http.post<User>(`${this.apiUrl}/crear`, user);
   }
 
-  // Petición PUT 
-  putUsuarios(usuarioActualizado: User, id: string) {
-    return this._httpClient.put(this.URL_USUARIOS + '/actualizar/' + id, usuarioActualizado);
+  putUsuarios(user: User, id: string): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/actualizar/${id}`, user);
   }
 
-  // Petición DELETE 
-  deleteUsuarios(id: string) {
-    return this._httpClient.delete(this.URL_USUARIOS + '/eliminar/' + id);
+  deleteUsuarios(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/eliminar/${id}`);
   }
-
 }

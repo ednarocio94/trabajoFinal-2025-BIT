@@ -1,7 +1,8 @@
-export interface Admin extends Document {
-    image?: string; 
+export interface Admin {
+    _id?: string; 
+    image?: string;
     fullName: string;
     email: string;
-    password: string; 
-    role: string; 
+    password: string;
+    role: string;
 }
