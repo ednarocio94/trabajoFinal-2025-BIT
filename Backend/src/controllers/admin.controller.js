@@ -1,88 +1,81 @@
-// Importar dependencias y módulos necesarios
 import { adminModel } from "../models/admin.model.js";
 import bcrypt from "bcryptjs";
 
-// Función asíncrona para manejar la creación de un nuevo administrador (POST)
+// Crear un administrador
 export const createAdmin = async (req, res) => {
-    try {
-        // Desestructuración del cuerpo de la solicitud para obtener los datos del nuevo administrador
-        const { image, fullName, email, password, role } = req.body;
-
-        // Encriptar la contraseña antes de almacenarla en la base de datos
-        const codedPassword = await bcrypt.hash(password, 10);
-
-        // Crear un nuevo administrador en la base de datos con los datos proporcionados
-        const newAdmin = await adminModel.create({
-            image,
-            fullName,
-            email,
-            password: codedPassword,
-            role
-        });
-
-        // Responder con éxito si el administrador se creó correctamente
-        return res.status(201).json({
-            mensaje: "Administrador creado correctamente",
-            datos: newAdmin
-        });
-
-    } catch (error) {
-        // Manejo de errores en caso de fallos en el proceso de creación
-        return res.status(400).json({
-            mensaje: "Ocurrió un error al crear un Administrador",
-            problema: error.message
-        });
-    }
+  try {
+    const { image, fullName, email, password, role } = req.body;
+    const codedPassword = await bcrypt.hash(password, 10);
+    const newAdmin = await adminModel.create({
+      image,
+      fullName,
+      email,
+      password: codedPassword,
+      role,
+    });
+    return res.status(201).json({
+      mensaje: "Administrador creado correctamente",
+      datos: newAdmin,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      mensaje: "Ocurrió un error al crear un Administrador",
+      problema: error.message,
+    });
+  }
 };
 
-// Función asíncrona para mostrar todos los administradores (GET)
+// Obtener todos los administradores
 export const showAdmin = async (req, res) => {
-    try {
-        // Buscar todos los administradores en la base de datos
-        let admins = await adminModel.find();
-
-        // Validación para verificar si hay administradores almacenados
-        if (admins.length === 0) {
-            return res.status(200).json({
-                mensaje: "No hay administradores almacenados"
-            });
-        }
-
-        // Responder con la lista de administradores encontrados
-        return res.status(200).json({
-            mensaje: "Se encontraron Administradores almacenados",
-            numeroAdministradores: admins.length,
-            datos: admins
-        });
-
-    } catch (error) {
-        // Manejo de errores si ocurre algún problema al buscar administradores
-        return res.status(400).json({
-            mensaje: "Ocurrió un error al mostrar los administradores",
-            problema: error.message
-        });
+  try {
+    let admins = await adminModel.find();
+    if (admins.length === 0) {
+      return res.status(200).json({
+        mensaje: "No hay administradores almacenados",
+      });
     }
+    return res.status(200).json({
+      mensaje: "Se encontraron Administradores almacenados",
+      numeroAdministradores: admins.length,
+      datos: admins,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      mensaje: "Ocurrió un error al mostrar los administradores",
+      problema: error.message,
+    });
+  }
 };
 
-// Función asíncrona para eliminar un administrador por ID (DELETE)
-export const deleteAdminById = async (request, response) => {
-    try {
-        // Obtener el ID del administrador a eliminar desde los parámetros de la solicitud
-        let idForDelete = request.params.id;
+// Actualizar un administrador
+export const updateAdminById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedAdmin = await adminModel.findByIdAndUpdate(id, req.body, { new: true });
+    return res.status(200).json({
+      mensaje: "Administrador actualizado correctamente",
+      datos: updatedAdmin,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      mensaje: "Ocurrió un error al actualizar el administrador",
+      problema: error.message,
+    });
+  }
+};
 
-        // Eliminar el administrador de la base de datos utilizando su ID
-        await adminModel.findByIdAndDelete(idForDelete);
-
-        // Responder con éxito si el administrador se eliminó correctamente
-        return response.status(200).json({
-            mensaje: 'Administrador eliminado exitosamente'
-        });
-
-    } catch (error) {
-        // Manejo de errores si ocurre un problema al eliminar el administrador
-        return response.status(400).json({
-            mensaje: 'Ocurrió un error al eliminar Administrador',
-            problema: error.message
-        });
-    }
+// Eliminar un administrador
+export const deleteAdminById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await adminModel.findByIdAndDelete(id);
+    return res.status(200).json({
+      mensaje: "Administrador eliminado exitosamente",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      mensaje: "Ocurrió un error al eliminar Administrador",
+      problema: error.message,
+    });
+  }
 };
