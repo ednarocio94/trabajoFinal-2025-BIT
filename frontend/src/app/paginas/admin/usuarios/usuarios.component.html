@@ -1,0 +1,42 @@
+<div class="dashboard-container">
+<aside class="sidebar">
+  <div class="logo">
+      <img src="assets/logo.png" alt="Logo" class="mi-logo">
+  </div>
+  <h2>Centro de administración</h2>
+  <p>Bienvenido, Admin</p>
+  <nav>
+    <ul>
+      <li> <a routerLink="/admin/gestionAdmin"> Gestión Admin</a></li>
+      <li><a routerLink="/admin/gestionUsuarios"> Gestion Usuarios</a></li>
+      <li><a routerLink="/admin"> Gestión mascotas</a>
+      </li>
+    </ul>
+  </nav>
+  <button (click)="loginout()" class="logout-btn">Cerrar sesión</button>
+</aside>
+<main class="main-content">
+  <div class="header">
+     <h1>Gestión de Usuarios</h1>
+    <button class="add-product-btn">Agregar nuevas mascotas</button>
+  </div> 
+
+   <div class="product-list">
+
+    <div *ngFor="let Usuarios of allUser">
+      <div class="product-card">
+        <img
+          src={{Usuarios.image}}
+          alt="Producto"
+          class="product-image"
+        />
+        <div class="Usuarios">  
+          <h3>{{Usuarios.fullName}}</h3>
+          <p> {{Usuarios.email}} </p>
+          
+        
+      </div>
+    </div>
+  </div>
+
+</div>

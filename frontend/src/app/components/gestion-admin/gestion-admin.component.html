@@ -1,0 +1,18 @@
+<div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="logo">
+          <img src="assets/logo.png" alt="Logo" class="mi-logo">
+      </div>
+      <h2>Centro de administración</h2>
+      <p>Bienvenido, Admin</p>
+      <nav>
+        <ul>
+          <li> <a routerLink="/admin/gestionAdmin"> Gestión Admin</a></li>
+          <li><a routerLink="/admin/gestionUsuarios"> Gestion Usuarios</a></li>
+          <li><a routerLink="/admin"> Gestión mascotas</a>
+          </li>
+        </ul>
+      </nav>
+      <button (click)="logout()" class="logout-btn">Cerrar sesión</button>
+    </aside>
+    </div>

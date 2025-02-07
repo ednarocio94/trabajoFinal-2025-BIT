@@ -1,0 +1,50 @@
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="logo">
+        <img src="assets/logo.png" alt="Logo" class="mi-logo">
+    </div>
+    <h2>Centro de administración</h2>
+    <p>Bienvenido, Admin</p>
+    <nav>
+      <ul>
+        <li> <a routerLink="/admin/gestionAdmin"> Gestión Admin</a></li>
+        <li><a routerLink="/admin/gestionUsuarios"> Gestion Usuarios</a></li>
+        <li><a routerLink="/admin"> Gestión mascotas</a>
+        </li>
+      </ul>
+    </nav>
+    <button (click)="logout()" class="logout-btn">Cerrar sesión</button>
+  </aside>
+
+  <main class="main-content">
+    <div class="header">
+       <h1>Gestión de mascotas</h1>
+      <button class="add-product-btn">Agregar nuevas mascotas</button>
+    </div> -->
+
+     <div class="product-list">
+
+      <div *ngFor="let mascota of allMacotas">
+        <div class="product-card">
+          <img
+            src={{mascota.imagen}}
+            alt="Producto"
+            class="product-image"
+          />
+          <div class="mascotas">  
+            <h3>{{mascota.nombre}}</h3>
+            <p> {{mascota.edad}} </p>
+            <p> {{mascota.estaAdoptado}}</p>
+            <p> {{mascota.propietario}}</p>
+            <p> {{mascota.estaAdoptado}}</p>
+          </div>
+          <!-- <div class="product-actions">
+            <button class="btn btn-success edit-btn">Editar</button>
+            <button class="btn btn-danger delete-btn">Eliminar</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </main>
+</div> 
+
