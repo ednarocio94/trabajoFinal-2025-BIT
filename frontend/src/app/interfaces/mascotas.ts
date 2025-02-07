@@ -5,5 +5,5 @@ export interface Mascotas {
     edad: number;
     propietario: string;
     estaAdoptado?: boolean;
-    _id: string
+    _id: string;
 }

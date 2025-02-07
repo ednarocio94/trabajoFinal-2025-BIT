@@ -1,5 +1,3 @@
-// modelo/Mascota.js
-
 import mongoose from 'mongoose';
 
 const esquemaMascota = new mongoose.Schema({
