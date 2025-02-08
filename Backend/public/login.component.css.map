@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/paginas/login/login.component.css"],
+  "sourcesContent": [".miContenedor {\r\n    width: 60%;\r\n    height: 40%;\r\n}\r\n\r\n\r\n/*Estilo general del scroll */\r\n::-webkit-scrollbar {\r\n    width: 5px;\r\n    height: 8px;\r\n}\r\n\r\n/* / Track del scroll / */\r\n::-webkit-scrollbar-track {\r\n    background: #f1f1f1;\r\n}\r\n\r\n/* / Barra de desplazamiento / */\r\n::-webkit-scrollbar-thumb {\r\n    background: #1a5276;\r\n    border-radius: 4px;\r\n}\r\n\r\n/* / Barra al pasar el mouse / */\r\n::-webkit-scrollbar-thumb:hover {\r\n    background: #006eff;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n    .mi-logo {\r\n      max-width: 80px;\r\n      height: auto;\r\n    }\r\n\r\n    .vh-100 {\r\n      height: auto !important;\r\n    }\r\n  }\r\n\r\n  @media (max-width: 576px) {\r\n    .card {\r\n      border-radius: 0.5rem !important;\r\n    }\r\n\r\n    .form-control-lg {\r\n      font-size: 1rem;\r\n    }\r\n  }"],
+  "mappings": ";AAAA,CAAC;AACG,SAAO;AACP,UAAQ;AACZ;AAIA;AACI,SAAO;AACP,UAAQ;AACZ;AAGA;AACI,cAAY;AAChB;AAGA;AACI,cAAY;AACZ,iBAAe;AACnB;AAGA,yBAAyB;AACrB,cAAY;AAChB;AAEA,OAAO,CAAC,SAAS,EAAE;AACf,GAAC;AACC,eAAW;AACX,YAAQ;AACV;AAEA,GAAC;AACC,YAAQ;AACV;AACF;AAEA,OAAO,CAAC,SAAS,EAAE;AACjB,GAAC;AACC,mBAAe;AACjB;AAEA,GAAC;AACC,eAAW;AACb;AACF;",
+  "names": []
+}

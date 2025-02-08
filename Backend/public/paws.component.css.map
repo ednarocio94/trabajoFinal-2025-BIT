@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/paginas/paws/paws.component.css"],
+  "sourcesContent": [".modal-header.bg-light {\r\n    background-color: #b80d1c;\r\n    /* Rosa claro */\r\n}\r\n\r\n.modal-title.text-center {\r\n    width: 100%;\r\n    /* Asegura que el t\u00EDtulo ocupe todo el ancho */\r\n    text-align: center;\r\n    /* Centra el texto */\r\n}\r\n\r\n.section-header .msj{\r\n    text-align: center;\r\n    width: 73%;\r\n    margin: 0 auto;\r\n    font-size: 20px;\r\n    margin-bottom: 10%;\r\n}\r\n.section-header h2 {\r\n    font-size: 24px;\r\n    text-align: center;\r\n    width: 73%;\r\n    margin: 0 auto;\r\n    margin-top: 5%;\r\n}\r\n/* CSS */\r\n.rounded-corners {\r\n    transition: transform 0.3s ease, filter 0.3s ease; /* Animaci\u00F3n suave */\r\n}\r\n\r\n.rounded-corners:hover {\r\n    transform: scale(1.1); /* Aumenta el tama\u00F1o al pasar el mouse */\r\n    filter: brightness(1.2); /* Incrementa el brillo */\r\n}\r\n"],
+  "mappings": ";AAAA,CAAC,YAAY,CAAC;AACV,oBAAkB;AAEtB;AAEA,CAAC,WAAW,CAAC;AACT,SAAO;AAEP,cAAY;AAEhB;AAEA,CAAC,eAAe,CAAC;AACb,cAAY;AACZ,SAAO;AACP,UAAQ,EAAE;AACV,aAAW;AACX,iBAAe;AACnB;AACA,CAPC,eAOe;AACZ,aAAW;AACX,cAAY;AACZ,SAAO;AACP,UAAQ,EAAE;AACV,cAAY;AAChB;AAEA,CAAC;AACG,cAAY,UAAU,KAAK,IAAI,EAAE,OAAO,KAAK;AACjD;AAEA,CAJC,eAIe;AACZ,aAAW,MAAM;AACjB,UAAQ,WAAW;AACvB;",
+  "names": []
+}
