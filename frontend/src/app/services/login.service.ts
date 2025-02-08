@@ -26,8 +26,9 @@ export class LoginService {
   public _toastrService = inject(ToastrService);
 
   // 2. RUTA DE CONEXIÓN CON EL BACKEND ----------------------------------
-  private URL_LOGIN_ADMIN = 'http://localhost:3000/loginAdmin';
-  private URL_LOGIN_USER = "http://localhost:3000/loginUser";
+  private URL_LOGIN_ADMIN = 'http://143.110.152.97:3000/loginAdmin';
+  private URL_LOGIN_USER = "http://143.110.152.97:3000/loginUser";
+
 
   // 3. INICIAR SESIÓN (petición POST) -----------------------------------
   inicioSesionAdmin(credencialesIngreso: CredencialesAdmin) {

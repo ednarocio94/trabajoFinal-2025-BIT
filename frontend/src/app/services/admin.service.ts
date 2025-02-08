@@ -7,7 +7,7 @@ import { Admin } from '../interfaces/admin';
 })
 export class AdminService {
   private _httpClient = inject(HttpClient);
-  private URL_ADMIN = 'http://localhost:3000/admin'; // Ruta base del backend
+  private URL_ADMIN = 'http://143.110.152.97:3000/admin'; // Ruta base del backend
 
   // Crear un administrador
   postAdmin(admin: Admin) {

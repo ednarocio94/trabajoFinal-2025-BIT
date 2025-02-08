@@ -7,7 +7,7 @@ import { User } from '../interfaces/user';
   providedIn: 'root',
 })
 export class UsuariosService {
-  private apiUrl = 'http://localhost:3000/usuarios'; // Asegúrate de que esta URL sea correcta
+  private apiUrl = 'http://143.110.152.97:3000/usuarios'; // Asegúrate de que esta URL sea correcta
 
   constructor(private http: HttpClient) {}
 

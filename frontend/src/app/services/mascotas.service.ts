@@ -7,7 +7,7 @@ import { Mascotas } from '../interfaces/mascotas';
   providedIn: 'root'
 })
 export class MascotasService {
-  private apiUrl = 'http://localhost:3000/mascotas'; // Asegúrate de que esta URL sea correcta
+  private apiUrl = 'http://143.110.152.97:3000/mascotas'; // Asegúrate de que esta URL sea correcta
 
   constructor(private http: HttpClient) {}
 

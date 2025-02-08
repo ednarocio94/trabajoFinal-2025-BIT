@@ -182,15 +182,27 @@ main {
 
 
 /*------------------ Sección "Conoce a Nuestras Mascotas" ------------------*/
-.galeria {
-    background-color: #f1f1f1;
-    padding: 40px 20px;
-    text-align: center;
+.galeria{
+    width: 100%;
+    height: auto;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#galeria-tittle {
+    font-family: 'Bevan', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #000;
 }
 
 .galeria h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    font-family: 'Bevan', cursive;
 }
 
 .galeria-imagenes {
@@ -201,12 +213,31 @@ main {
 
 .galeria-imagenes img {
     width: 300px;
-    height: 200px;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
 }
 
 .galeria .cta-btn {
+    background-color: #037512;
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    font-family: 'Figtree', sans-serif;
+    border: solid 5px white;
+    /* Fondo blanco */
+    padding: 10px 20px;
+    /* Más espacio interno */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.521);
+    /* Sombra más pronunciada */
+    border-radius: 16px;
+    /* Bordes redondeados */
+    text-align: center;
+    flex: 1;
+    width: auto;
+    /* Ajuste mínimo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Efecto de hover */
     margin-top: 20px;
 }
 
